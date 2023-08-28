@@ -4,22 +4,26 @@
 <ul  class="list-group">
 
   <li *ngFor="
-    let character of characterList;
-    let i  = index;
-    let isFirst = first;
-    let isLast = last;
-    let isEven = even;
-  "
-  class="list-group-item"
-  [ngClass]="{
-    'list-group-item-dark': isLast,
-    'list-group-item-primary': isEven,
-  }">
+      let character of characterList;
+      let i  = index;
+      let isFirst = first;
+      let isLast = last;
+      let isEven = even;
+    "
+    class="list-group-item d-flex justify-content-between"
+    [ngClass]="{
+      'list-group-item-dark': isLast,
+      'list-group-item-primary': isEven,
+    }">
 
-    <span class="text-primary"> {{  i + 1 }}. </span>
-    <span>{{ character.name }} - </span>
-    <strong>Power: </strong>
-    <span>{{character.power}}</span>
+    <div>
+      <span class="text-primary"> {{  i + 1 }}. </span>
+      <span>{{ character.name }} - </span>
+      <strong>Power: </strong>
+      <span>{{character.power}}</span>
+    </div>
+
+    <button (click)="onDeleteCharacter(i)" class="btn btn-danger">X</button>
 
   </li>
 
